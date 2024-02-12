@@ -4,9 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.List;
 
-public class Task1 {
 
+
+public class Dayscheckboxallselecte {
+
+	
 	public static void main(String[] args) throws Throwable {
 		WebDriver driver = new ChromeDriver();
 	       
@@ -34,13 +38,32 @@ public class Task1 {
 	    
 	    driver.findElement(By.xpath("//*[@id=\"phone\"]")).sendKeys("9618093184");
 	    
-		
+	    Thread.sleep(1000);
+	    driver.findElement(By.xpath("//*[@id=\"textarea\"]")).sendKeys("Plot no : 469, flat no : 201, Sri Krishna kaumidi apartment,vivekananda nagar colony ");
+	    
+	    Thread.sleep(2000);
 	    WebElement clickOperation =	driver.findElement(By.xpath("//input[@id='male']"));
 		System.out.println(clickOperation.isSelected());
 		clickOperation.click();
 		
-		String text = driver.findElement(By.xpath("//h1[@class='title']")).getText();
-		System.out.println(text);
+//		WebElement clickOperation1 = driver.findElement(By.xpath("//*[@id=\"female\"]"));
+//		System.out.println(clickOperation.isSelected());
+//		clickOperation.click();
+//		
+		Thread.sleep(2000);
+		List< WebElement> checkBoxes = driver.findElements(By.xpath("//input[@type='checkbox' and contains@id,'day'] "));
+		
+		for (WebElement operation : checkBoxes) {
+			operation.click();
+		}
+
+//		for (int i=0;i<checkBoxes.size();i++) 
+//        {
+//			Operation.click();
+//		}
+		
+		
+	
 		
 	}
 	}
